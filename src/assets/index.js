@@ -1,4 +1,4 @@
-const logo = "/logo.svg";
+const logo = `${import.meta.env.BASE_URL}logo.svg`;
 const backend =
   "https://ik.imagekit.io/bqzlidc77g/my%20portfolio/backend.png?updatedAt=1749961127387";
 const creator =

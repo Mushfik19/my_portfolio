@@ -26,7 +26,7 @@ const Hero = () => {
       <ComputersCanvas />
       <div className="absolute right-10 top-32 z-10 hidden md:block">
   <img
-    src="/mahfuj.png"
+    src={`${import.meta.env.BASE_URL}mahfuj.png`}
     alt="Mahfujur Rahman"
     className="w-48 h-48 rounded-full border-4 border-[#915eff] object-cover shadow-2xl"
   />
