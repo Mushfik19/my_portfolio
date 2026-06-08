@@ -25,6 +25,8 @@ import {
   threejs,
 } from "../assets";
 
+const BASE = import.meta.env.BASE_URL;
+
 export const navLinks = [
   {
     id: "about",
@@ -109,47 +111,47 @@ const technologies = [
 export const certifications = [
   {
     title: "Best Ambassador - ICAI 2025",
-    image: "/certs/best-ambassador.png",
+    image: `${BASE}certs/best-ambassador.png`,
   },
   {
     title: "Research Paper Writing Masterclass",
-    image: "/certs/carsit.jpg",
+    image: `${BASE}certs/carsit.jpg`,
   },
   {
     title: "UNICEF Children's Rights",
-    image: "/certs/unicef.png",
+    image: `${BASE}certs/unicef.png`,
   },
   {
     title: "Database Programming",
-    image: "/certs/database.jpg",
+    image: `${BASE}certs/database.jpg`,
   },
   {
     title: "MERN Stack Development Workshop",
-    image: "/certs/mern.png",
+    image: `${BASE}certs/mern.png`,
   },
   {
     title: "Publication Coordinator",
-    image: "/certs/publication.png",
+    image: `${BASE}certs/publication.png`,
   },
   {
     title: "Logistic Support Coordinator",
-    image: "/certs/logistics.png",
+    image: `${BASE}certs/logistics.png`,
   },
   {
     title: "IEEE UpSkill Bangladesh",
-    image: "/certs/upskill.jpg",
+    image: `${BASE}certs/upskill.jpg`,
   },
   {
     title: "AI & Reinforcement Learning",
-    image: "/certs/ai-talk.png",
+    image: `${BASE}certs/ai-talk.png`,
   },
   {
     title: "Consumer Rights Conference",
-    image: "/certs/ccs.png",
+    image: `${BASE}certs/ccs.png`,
   },
   {
     title: "Take Off Programming Contest",
-    image: "/certs/takeoff.jpg",
+    image: `${BASE}certs/takeoff.jpg`,
   },
 ];
 
@@ -241,7 +243,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-      image: "/neuro.png",
+      image: `${BASE}projects/neuro.png`,
     source_code_link: "#",
     live_website_link: "#",
   },
@@ -264,7 +266,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: "/parking.png",
+    image: `${BASE}projects/parking.png`,
     source_code_link: "#",
     live_website_link: "#",
   },
@@ -289,7 +291,7 @@ const projects = [
       color: "pink-text-gradient",
     },
   ],
- image: "/student.png",
+  image: `${BASE}projects/student.png`,
   source_code_link: "#",
   live_website_link: "#",
 },
@@ -312,7 +314,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: "/portfolio.png",
+    image: `${BASE}projects/portfolio.png`,
     source_code_link: "#",
     live_website_link: "#",
   },
@@ -334,7 +336,7 @@ const projects = [
       color: "pink-text-gradient",
     },
   ],
-  image: "/c.png",
+  image: `${BASE}projects/c.png`,
   source_code_link: "#",
   live_website_link: "#",
 },
@@ -356,7 +358,7 @@ const projects = [
       color: "pink-text-gradient",
     },
   ],
-  image: "/topology.png",
+  image: `${BASE}projects/topology.png`,
   source_code_link: "#",
   live_website_link: "#",
 },
