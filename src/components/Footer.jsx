@@ -3,8 +3,8 @@ import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="w-full py-12 text-center border-t border-[#2a2a4a] mt-20">
-      <h2 className="text-[#7ea8ff] text-4xl font-bold">
+    <footer className="w-full py-6 text-center border-t border-[#2a2a4a] mt-8">
+      <h2 className="text-[#7ea8ff] text-3xl font-bold">
         Md. Mahfujur Rahman
       </h2>
 
@@ -44,12 +44,12 @@ const Footer = () => {
         </a>
       </div>
 
-      <p className="text-gray-400 mt-8 text-lg">
+      <p className="text-gray-400 mt-5 text-base">
         AI Research Enthusiast • Software Developer • Healthcare Analytics
       </p>
 
-      <p className="text-gray-500 mt-3">
-        © 2026 Md. Mahfujur Rahman — All rights reserved
+      <p className="text-gray-500 mt-2 text-sm">
+        © 2026 All rights reserved by mushfik arman.
       </p>
     </footer>
   );
