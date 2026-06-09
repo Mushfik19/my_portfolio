@@ -8,6 +8,16 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
 
+  const handleSmoothScroll = (e, id) => {
+    e.preventDefault();
+    setActive(id === "contact" ? "CONTACT" : navLinks.find(link => link.id === id)?.title);
+    
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   useEffect(() => {
   const handleScroll = () => {
     const sections = navLinks.map((link) =>
@@ -80,7 +90,7 @@ const Navbar = () => {
               } hover:text-[#ffffffac] text-[15px] font-medium cursor-pointer`}
               onClick={() => setActive(link.title)}
             >
-              <a href={`#${link.id}`}>{link.title}</a>
+              <a href={`#${link.id}`} onClick={(e) => handleSmoothScroll(e, link.id)}>{link.title}</a>
             </li>
           ))}
         </ul>
@@ -96,6 +106,7 @@ const Navbar = () => {
 
   <a
     href="#contact"
+    onClick={(e) => handleSmoothScroll(e, 'contact')}
     className="px-3 py-2 text-xs bg-[#915eff] text-white rounded-lg hover:bg-[#7d48f5] transition"
   >
     Hire Me
@@ -142,7 +153,7 @@ const Navbar = () => {
               }}
               className="text-[22px] mt-2 text-[#ffffffb0] hover:text-white font-medium cursor-pointer transition-all"
             >
-              <a href={`#${link.id}`}>{link.title}</a>
+              <a href={`#${link.id}`} onClick={(e) => handleSmoothScroll(e, link.id)}>{link.title}</a>
             </p>
           ))}
         </div>
