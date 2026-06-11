@@ -1,5 +1,4 @@
-import React from "react";
-import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope } from "react-icons/fa";
+import { FaEnvelope, FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -45,11 +44,11 @@ const Footer = () => {
       </div>
 
       <p className="text-gray-400 mt-5 text-base">
-        AI Research Enthusiast • Software Developer • Healthcare Analytics
+        AI Research Enthusiast | Software Developer | Healthcare Analytics
       </p>
 
       <p className="text-gray-500 mt-2 text-sm">
-        © 2026 All rights reserved by mushfik arman.
+        Copyright 2026. All rights reserved by Mushfik Arman.
       </p>
     </footer>
   );

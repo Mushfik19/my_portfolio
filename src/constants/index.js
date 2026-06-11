@@ -4,25 +4,13 @@ import {
   creator,
   web,
   javascript,
-  typescript,
   html,
   css,
   reactjs,
-  redux,
-  tailwind,
-  nodejs,
   mongodb,
   git,
-  figma,
-  docker,
-  meta,
   freelance,
-  shopify,
   sheryians,
-  macbookpro,
-  falverra,
-  tripguide,
-  threejs,
 } from "../assets";
 
 const BASE = import.meta.env.BASE_URL;
@@ -31,27 +19,33 @@ export const navLinks = [
   {
     id: "about",
     title: "ABOUT",
+    path: "/about",
   },
   {
     id: "skills",
     title: "SKILLS",
+    path: "/skills",
   },
   {
     id: "projects",
     title: "PROJECTS",
+    path: "/projects",
   },
 
   {
     id: "work",
     title: "EXPERIENCE",
+    path: "/experience",
   },
   {
     id: "certs",
     title: "CERTS",
+    path: "/certs",
   },
   {
     id: "contact",
     title: "CONTACT",
+    path: "/contact",
   },
 ];
 
@@ -72,6 +66,52 @@ const services = [
     title: "Data Analytics",
     icon: creator,
   },
+];
+
+export const achievements = [
+  {
+    title: "Best Ambassador",
+    meta: "ICAI 2025",
+    description:
+      "Recognized for strong outreach, communication, and contribution during the International Congress on Artificial Intelligence.",
+  },
+  {
+    title: "Publication Coordinator",
+    meta: "IEEE DIU CS",
+    description:
+      "Supported publication workflows, documentation, and collaboration with authors and reviewers in academic activities.",
+  },
+  {
+    title: "Healthcare Research",
+    meta: "Active Contributor",
+    description:
+      "Worked with maternal and child health research initiatives using data collection, analysis, and report support.",
+  },
+];
+
+export const researchFocus = [
+  {
+    title: "Healthcare AI",
+    description:
+      "Building practical machine learning solutions for health-related prediction, analysis, and decision support.",
+  },
+  {
+    title: "Applied Machine Learning",
+    description:
+      "Exploring data-driven modeling, classification, and predictive systems that solve real-world problems.",
+  },
+  {
+    title: "Research Communication",
+    description:
+      "Contributing to scientific writing, publication support, and clear presentation of technical findings.",
+  },
+];
+
+export const currentFocus = [
+  "Developing AI projects with real-world social impact",
+  "Strengthening research and publication experience",
+  "Expanding full-stack and interactive frontend skills",
+  "Seeking research, internship, and collaboration opportunities",
 ];
 
 const technologies = [

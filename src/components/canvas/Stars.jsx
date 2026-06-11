@@ -1,5 +1,5 @@
 import React from "react";
-import { useRef, useState, Suspense } from "react";
+import { useRef, Suspense } from "react";
 import { PointMaterial, Preload, Points } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as random from "maath/random/dist/maath-random.esm";

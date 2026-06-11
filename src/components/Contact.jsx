@@ -1,34 +1,29 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
-import { slideIn } from "../utils/motion";
-import { SectionWrapper } from "../hoc";
 import emailjs from "@emailjs/browser";
-
-// template_49jw5yq
-// service_9gvq101
-// 3lDtCP31mFt_52s7F
+import { EarthCanvas } from "./canvas";
+import { SectionWrapper } from "../hoc";
+import { styles } from "../styles";
+import { slideIn } from "../utils/motion";
 
 const Contact = () => {
+  const cvUrl = `${import.meta.env.BASE_URL}Mahfujur_Rahman_CV.pdf`;
   const formRef = useRef();
-  const [form, setform] = useState({
+  const [form, setForm] = useState({
     name: "",
     email: "",
     message: "",
   });
-  const [loading, setloading] = useState(false);
-  const handlechange = (e) => {
-    const { name, value } = e.target;
-    setform({ ...form, [name]: value });
-  };
-  const handlesubmit = (e) => {
-    e.preventDefault();
-    setloading(true);
+  const [loading, setLoading] = useState(false);
 
-    // template_49jw5yq
-    // service_9gvq101
-    // 3lDtCP31mFt_52s7F
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setLoading(true);
 
     emailjs
       .send(
@@ -36,30 +31,29 @@ const Contact = () => {
         "template_49jw5yq",
         {
           from_name: form.name,
-
           from_email: form.email,
-
           message: form.message,
         },
         "3lDtCP31mFt_52s7F"
       )
       .then(
         () => {
-          setloading(false);
+          setLoading(false);
           alert("Thank you. I will get back to you as soon as possible");
-          setform({
+          setForm({
             name: "",
             email: "",
             message: "",
           });
         },
         (error) => {
-          setloading(false);
+          setLoading(false);
           console.log(error);
           alert("Something went wrong.");
         }
       );
   };
+
   return (
     <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden">
       <motion.div
@@ -68,44 +62,45 @@ const Contact = () => {
       >
         <p className={styles.sectionSubText}>Let's Connect</p>
         <h3 className={styles.sectionHeadText}>Get In Touch.</h3>
-<p className="text-secondary mt-4">
-  📧 Email: mushfik.cse@gmail.com
-</p>
 
-<p className="text-secondary mt-2">
-  💻 GitHub:
-  <a
-    href="https://github.com/yourusername"
-    target="_blank"
-    rel="noreferrer"
-    className="text-[#915eff] ml-2"
-  >
-    GitHub Profile
-  </a>
-</p>
+        <p className="text-secondary mt-4">Email: mushfik.cse@gmail.com</p>
 
-<p className="text-secondary mt-2 mb-6">
-  💼 LinkedIn:
-  <a
-    href="https://linkedin.com/in/yourprofile"
-    target="_blank"
-    rel="noreferrer"
-    className="text-[#915eff] ml-2"
-  >
-    LinkedIn Profile
-  </a>
-</p>
+        <p className="text-secondary mt-2">
+          GitHub:
+          <a
+            href="https://github.com/Mushfik19"
+            target="_blank"
+            rel="noreferrer"
+            className="text-[#915eff] ml-2"
+          >
+            GitHub Profile
+          </a>
+        </p>
 
-<a
-  href="/Mahfujur_Rahman_CV.pdf"
-  download
-  className="inline-block px-6 py-3 bg-[#915eff] text-white rounded-xl mb-8"
->
-  Download CV
-</a>
+        <p className="text-secondary mt-2 mb-6">
+          LinkedIn:
+          <a
+            href="https://www.linkedin.com/in/md-mahfujur-rahman-cse19/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-[#915eff] ml-2"
+          >
+            LinkedIn Profile
+          </a>
+        </p>
+
+        <a
+          href={cvUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-block px-6 py-3 bg-[#915eff] text-white rounded-xl mb-8"
+        >
+          View CV
+        </a>
+
         <form
           ref={formRef}
-          onSubmit={handlesubmit}
+          onSubmit={handleSubmit}
           className="mt-12 flex flex-col gap-8"
         >
           <label className="flex flex-col">
@@ -114,7 +109,7 @@ const Contact = () => {
               type="text"
               name="name"
               value={form.name}
-              onChange={handlechange}
+              onChange={handleChange}
               placeholder="what's your name?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
@@ -125,7 +120,7 @@ const Contact = () => {
               type="email"
               name="email"
               value={form.email}
-              onChange={handlechange}
+              onChange={handleChange}
               placeholder="what's your email?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
@@ -137,7 +132,7 @@ const Contact = () => {
               type="text"
               name="message"
               value={form.message}
-              onChange={handlechange}
+              onChange={handleChange}
               placeholder="what do you want to say?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />

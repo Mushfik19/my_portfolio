@@ -1,57 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 
 const Navbar = () => {
-  const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
-
-  const handleSmoothScroll = (e, id) => {
-    e.preventDefault();
-    setActive(id === "contact" ? "CONTACT" : navLinks.find(link => link.id === id)?.title);
-    
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
-  useEffect(() => {
-  const handleScroll = () => {
-    const sections = navLinks.map((link) =>
-      document.getElementById(link.id)
-    );
-
-    const scrollPosition = window.scrollY + 300;
-
-    let currentSection = "";
-
-    sections.forEach((section, index) => {
-      if (section) {
-        const sectionTop = section.offsetTop;
-        const sectionBottom = sectionTop + section.offsetHeight;
-        
-        // Check if section is currently in view
-        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-          currentSection = navLinks[index].title;
-        }
-      }
-    });
-
-    if (currentSection) {
-      setActive(currentSection);
-    }
-  };
-
-  window.addEventListener("scroll", handleScroll);
-  handleScroll();
-
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-  };
-}, []);
+  const location = useLocation();
+  const activePath = location.pathname;
 
   return (
     <nav
@@ -62,8 +18,8 @@ const Navbar = () => {
           to="/"
           className="flex items-center gap-0"
           onClick={() => {
-            setActive("");
             window.scrollTo(0, 0);
+            setToggle(false);
           }}
         >
           <img
@@ -79,39 +35,42 @@ const Navbar = () => {
           </p>
         </Link>
 
-        <ul className="list-none hidden text-nowrap sm:flex flex-row gap-5">
+        <ul className="hidden sm:flex flex-row items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 backdrop-blur-md">
           {navLinks.map((link) => (
             <li
               key={link.id}
               className={`${
-                active === link.title && link.title !== "CONTACT"
-  ? "text-cyan-400 drop-shadow-[0_0_10px_rgba(34,211,238,0.9)]"
-  : "text-[#ffffff69]"
-              } hover:text-[#ffffffac] text-[15px] font-medium cursor-pointer`}
-              onClick={() => setActive(link.title)}
+                activePath === link.path
+                  ? "text-white"
+                  : "text-[#ffffff8c]"
+              } text-[13px] font-semibold tracking-[0.18em] cursor-pointer transition`}
             >
-              <a href={`#${link.id}`} onClick={(e) => handleSmoothScroll(e, link.id)}>{link.title}</a>
+              <Link
+                to={link.path}
+                className={`block rounded-full px-4 py-2 transition duration-300 ${
+                  activePath === link.path
+                    ? "bg-gradient-to-r from-[#8d5bff] to-[#1ec8ff] shadow-[0_0_25px_rgba(145,94,255,0.35)]"
+                    : "hover:bg-white/10"
+                }`}
+              >
+                {link.title}
+              </Link>
             </li>
           ))}
         </ul>
-<div className="hidden sm:flex items-center gap-2">
-  <a
-    href="/Mahfujur_Rahman_CV.pdf"
-    target="_blank"
-    rel="noreferrer"
-    className="px-3 py-2 text-xs border border-[#915eff] text-[#915eff] rounded-lg hover:bg-[#915eff] hover:text-white transition"
-  >
-    Download CV
-  </a>
-
-  <a
-    href="#contact"
-    onClick={(e) => handleSmoothScroll(e, 'contact')}
-    className="px-3 py-2 text-xs bg-[#915eff] text-white rounded-lg hover:bg-[#7d48f5] transition"
-  >
-    Hire Me
-  </a>
-</div>
+        <div className="hidden sm:flex items-center gap-2">
+          <div className="rounded-full border border-[#915eff]/40 bg-[#915eff]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#d8c7ff]">
+            <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(74,222,128,0.8)]"></span>
+            Open To Work
+          </div>
+          <Link
+            to="/contact"
+            className="group relative overflow-hidden rounded-full border border-[#915eff] bg-[#915eff] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-[0_10px_30px_rgba(145,94,255,0.35)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#7d48f5]"
+          >
+            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition duration-500 group-hover:translate-x-full"></span>
+            <span className="relative">Hire Me</span>
+          </Link>
+        </div>
         {/* Mobile menu icon */}
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
@@ -148,12 +107,20 @@ const Navbar = () => {
             <p
               key={link.id}
               onClick={() => {
-                setActive(link.title);
                 setToggle(false);
               }}
-              className="text-[22px] mt-2 text-[#ffffffb0] hover:text-white font-medium cursor-pointer transition-all"
+              className="mt-2"
             >
-              <a href={`#${link.id}`} onClick={(e) => handleSmoothScroll(e, link.id)}>{link.title}</a>
+              <Link
+                to={link.path}
+                className={`block rounded-2xl px-4 py-3 text-[20px] font-semibold tracking-[0.12em] transition-all ${
+                  activePath === link.path
+                    ? "bg-white/10 text-white"
+                    : "text-[#ffffffb0] hover:bg-white/5 hover:text-white"
+                }`}
+              >
+                {link.title}
+              </Link>
             </p>
           ))}
         </div>
