@@ -18,10 +18,10 @@ const Home = () => {
         <Hero />
       </div>
       <About />
-      <Achievements />
+      <Works />
       <ResearchFocus />
       <Tech />
-      <Works />
+      <Achievements />
       <CurrentFocus />
       <Experience />
       <Certs />

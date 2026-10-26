@@ -36,8 +36,8 @@ const Computers = ({ isMobile }) => {
       >
         <primitive
           object={computer.scene}
-          scale={isMobile ? 0.5 : 0.75}
-          position={isMobile ? [0, -1.6, -1.2] : [0, -2.6, -1.5]}
+          scale={isMobile ? 0.48 : 0.75}
+          position={isMobile ? [0, -1.8, -1.2] : [0, -2.5, -1.4]}
           rotation={isMobile ? [0, 0, -0.05] : [-0.01, -0.2, -0.05]}
         />
       </Float>
@@ -76,9 +76,10 @@ const ComputersCanvas = () => {
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           enableZoom={false}
-           enableRotate={true} 
+          enableRotate={true}
+          rotateSpeed={1.2}
           maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 2.3}
         />
         <Computers isMobile={isMobile} />
       </Suspense>

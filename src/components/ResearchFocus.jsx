@@ -3,34 +3,44 @@ import { researchFocus } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { styles } from "../styles";
 import { fadeIn, textVariant } from "../utils/motion";
+import { FaFlask, FaMicroscope } from "react-icons/fa";
 
 const ResearchFocus = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>What Drives My Work</p>
-        <h2 className={styles.sectionHeadText}>Research Focus</h2>
+        <p className={styles.sectionSubText}>Scientific Inquiry & Methodologies</p>
+        <h2 className={styles.sectionHeadText}>Research Focus.</h2>
       </motion.div>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 max-w-3xl text-[16px] leading-7 text-secondary"
+        className="mt-4 max-w-3xl text-[14px] sm:text-[16px] leading-7 text-secondary"
       >
-        My academic interest centers on practical AI systems that connect
-        research, data, and meaningful real-world use cases.
+        My academic research centers on practical, explainable computational systems that bridge
+        theoretical modeling with real-world constraints in healthcare, agriculture, and civic infrastructure.
       </motion.p>
 
-      <div className="mt-12 space-y-5">
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
         {researchFocus.map((item, index) => (
           <motion.div
             key={item.title}
-            variants={fadeIn("right", "spring", index * 0.2, 0.75)}
-            className="rounded-[24px] border border-[#915eff]/20 bg-gradient-to-r from-[#151030] to-[#0f172a] p-6"
+            variants={fadeIn("up", "spring", index * 0.15, 0.75)}
+            className="rounded-2xl border border-white/10 bg-[#0e0e14] hover:border-white/20 p-6 flex flex-col justify-between transition duration-300"
           >
-            <h3 className="text-[24px] font-bold text-white">{item.title}</h3>
-            <p className="mt-3 max-w-4xl text-[15px] leading-7 text-secondary">
-              {item.description}
-            </p>
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <span className="p-2 rounded-lg bg-white/5 border border-white/10 text-purple-400 text-sm">
+                  {index % 2 === 0 ? <FaMicroscope /> : <FaFlask />}
+                </span>
+                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                  {item.title}
+                </h3>
+              </div>
+              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                {item.description}
+              </p>
+            </div>
           </motion.div>
         ))}
       </div>

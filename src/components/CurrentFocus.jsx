@@ -8,19 +8,19 @@ const CurrentFocus = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Right Now</p>
-        <h2 className={styles.sectionHeadText}>Current Focus</h2>
+        <p className={styles.sectionSubText}>Active Technical Pursuits</p>
+        <h2 className={styles.sectionHeadText}>Current Focus.</h2>
       </motion.div>
 
-      <div className="mt-10 grid gap-5 md:grid-cols-2">
+      <div className="mt-8 grid gap-4 md:grid-cols-2">
         {currentFocus.map((item, index) => (
           <motion.div
             key={item}
-            variants={fadeIn("up", "spring", index * 0.15, 0.75)}
-            className="flex items-start gap-4 rounded-[22px] border border-white/10 bg-white/5 p-5 backdrop-blur-sm"
+            variants={fadeIn("up", "spring", index * 0.12, 0.75)}
+            className="flex items-start gap-4 rounded-xl border border-white/10 bg-[#0e0e14] p-5 hover:border-white/20 transition duration-200"
           >
-            <span className="mt-1 inline-block h-3 w-3 rounded-full bg-[#915eff] shadow-[0_0_15px_rgba(145,94,255,0.8)]"></span>
-            <p className="text-[15px] leading-7 text-[#e4defd]">{item}</p>
+            <span className="mt-1.5 inline-block h-2 w-2 rounded-full bg-emerald-400 shrink-0"></span>
+            <p className="text-xs sm:text-sm leading-relaxed text-gray-300">{item}</p>
           </motion.div>
         ))}
       </div>

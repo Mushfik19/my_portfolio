@@ -9,9 +9,12 @@ import {
   reactjs,
   mongodb,
   git,
+  docker,
+  typescript,
   freelance,
   sheryians,
 } from "../assets";
+import { projectsData } from "../data/projectsData";
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -31,7 +34,6 @@ export const navLinks = [
     title: "PROJECTS",
     path: "/projects",
   },
-
   {
     id: "work",
     title: "EXPERIENCE",
@@ -51,81 +53,108 @@ export const navLinks = [
 
 const services = [
   {
-    title: "AI Research",
+    title: "Civic Tech & Full-Stack",
     icon: web,
+    description: "FastAPI, Next.js, React, PostgreSQL/PostGIS, Redis, scalable REST APIs.",
   },
   {
-    title: "Machine Learning",
+    title: "Applied AI & ML",
     icon: mobile,
+    description: "Explainable machine learning, SHAP, feature ablation, agroclimatic modeling.",
   },
   {
-    title: "Java Development",
+    title: "Computer Vision & Medical AI",
     icon: backend,
+    description: "DenseNet121, Grad-CAM interpretability, radiograph classification pipelines.",
   },
   {
-    title: "Data Analytics",
+    title: "NLP & Semantic Search",
     icon: creator,
+    description: "spaCy taxonomy extractors, Sentence-Transformers embeddings, dialectal NER.",
   },
 ];
 
 export const achievements = [
   {
+    title: "Organizing Joint Secretary",
+    meta: "ICADHI 2025 - 2026",
+    description:
+      "Served as Organizing Joint Secretary for the International Congress on AI & Digital Health Innovation, managing conference operations, logistics, and technical sessions.",
+  },
+  {
     title: "Best Ambassador",
     meta: "ICAI 2025",
     description:
-      "Recognized for strong outreach, communication, and contribution during the International Congress on Artificial Intelligence.",
+      "Recognized as Best Ambassador for outstanding outreach, communication, and contribution during the International Congress on Artificial Intelligence.",
   },
   {
     title: "Publication Coordinator",
-    meta: "IEEE DIU CS",
+    meta: "IEEE DIU Computer Society",
     description:
-      "Supported publication workflows, documentation, and collaboration with authors and reviewers in academic activities.",
+      "Coordinated academic publication workflows, documentation, author correspondence, and review tracking in academic activities.",
   },
   {
-    title: "Healthcare Research",
+    title: "Healthcare Research Contributor",
     meta: "Active Contributor",
     description:
-      "Worked with maternal and child health research initiatives using data collection, analysis, and report support.",
+      "Contributed to maternal and child healthcare datasets, medical imaging interpretability pipelines, and scientific reporting.",
   },
 ];
 
 export const researchFocus = [
   {
-    title: "Healthcare AI",
+    title: "Explainable Medical AI (XAI) & Clinical Decision Support",
     description:
-      "Building practical machine learning solutions for health-related prediction, analysis, and decision support.",
+      "Developing interpretable deep learning workflows using DenseNet121 and Grad-CAM (Gradient-weighted Class Activation Mapping) for visual opacity localization in chest radiographs.",
   },
   {
-    title: "Applied Machine Learning",
+    title: "Minimal-Feature Agroclimatic Recommendation",
     description:
-      "Exploring data-driven modeling, classification, and predictive systems that solve real-world problems.",
+      "Conducting comparative machine learning research on AgrClimateBD and SPAS-Dataset-BD with feature ablation and SHAP explainability for resource-constrained Bangladeshi farmers.",
   },
   {
-    title: "Research Communication",
+    title: "Bangla Regional Dialect Named Entity Recognition",
     description:
-      "Contributing to scientific writing, publication support, and clear presentation of technical findings.",
+      "Exploring transformer tokenization dynamics (BanglaBERT, XLM-RoBERTa) across colloquial regional dialect corpora (Barishal, Chittagong, Sylhet, etc.).",
+  },
+  {
+    title: "Tamper-Evident Civic Coordination Systems",
+    description:
+      "Architecting municipal coordination platforms combining hardware GPS integrity, Haversine spatial verification, and chained SHA-256 audit trails.",
   },
 ];
 
 export const currentFocus = [
-  "Developing AI projects with real-world social impact",
-  "Strengthening research and publication experience",
-  "Expanding full-stack and interactive frontend skills",
-  "Seeking research, internship, and collaboration opportunities",
+  "Building tamper-evident civic coordination prototypes with spatial verification",
+  "Refining explainable AI architectures (Grad-CAM, SHAP) for health and agriculture",
+  "Advancing full-stack engineering with FastAPI, Next.js, and PostgreSQL/PostGIS",
+  "Actively pursuing collaborative research and software engineering opportunities",
 ];
 
 const technologies = [
-  {
-    name: "Java",
-    icon: javascript,
-  },
   {
     name: "Python",
     icon: reactjs,
   },
   {
-    name: "MySQL",
-    icon: mongodb,
+    name: "TypeScript",
+    icon: typescript,
+  },
+  {
+    name: "JavaScript",
+    icon: javascript,
+  },
+  {
+    name: "React",
+    icon: reactjs,
+  },
+  {
+    name: "Docker",
+    icon: docker,
+  },
+  {
+    name: "Git",
+    icon: git,
   },
   {
     name: "HTML 5",
@@ -136,30 +165,35 @@ const technologies = [
     icon: css,
   },
   {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Git",
-    icon: git,
+    name: "MySQL / Postgres",
+    icon: mongodb,
   },
 ];
+
 export const certifications = [
+  {
+    title: "SPA Development with React.Js - National Cyber Security Agency (NCSA)",
+    image: `${BASE}certs/react-spa-ncsa.png`,
+  },
+  {
+    title: "Voluntary Service & Contribution - DIU YKSG 2",
+    image: `${BASE}certs/sports-appreciation.png`,
+  },
   {
     title: "Best Ambassador - ICAI 2025",
     image: `${BASE}certs/best-ambassador.png`,
   },
   {
-    title: "Research Paper Writing Masterclass",
-    image: `${BASE}certs/carsit.jpg`,
+    title: "Publication Coordinator - IEEE DIU CS",
+    image: `${BASE}certs/publication.png`,
   },
   {
-    title: "UNICEF Children's Rights",
-    image: `${BASE}certs/unicef.png`,
+    title: "Logistic Support Coordinator - ICADHI",
+    image: `${BASE}certs/logistics.png`,
+  },
+  {
+    title: "Research Paper Writing Masterclass",
+    image: `${BASE}certs/carsit.jpg`,
   },
   {
     title: "Database Programming",
@@ -170,12 +204,8 @@ export const certifications = [
     image: `${BASE}certs/mern.png`,
   },
   {
-    title: "Publication Coordinator",
-    image: `${BASE}certs/publication.png`,
-  },
-  {
-    title: "Logistic Support Coordinator",
-    image: `${BASE}certs/logistics.png`,
+    title: "UNICEF Children's Rights",
+    image: `${BASE}certs/unicef.png`,
   },
   {
     title: "IEEE UpSkill Bangladesh",
@@ -197,211 +227,57 @@ export const certifications = [
 
 const experiences = [
   {
-    title: "Research Contributor",
-    company_name: "Healthcare Research Projects",
-    icon: freelance,
-    iconBg: "#915EFF",
-    date: "2025 - Present",
-    points: [
-      "Worked on maternal and child health research.",
-      "Collected and analyzed healthcare datasets.",
-      "Contributed to scientific report writing.",
-      "Supported research publication activities.",
-    ],
-  },
-
-  {
-    title: "Software Developer",
-    company_name: "Academic Projects",
-    icon: sheryians,
-    iconBg: "#ffffff",
-    date: "2024 - Present",
-    points: [
-      "Developed Smart Parking Management System using Java Swing.",
-      "Built database-driven applications with MySQL.",
-      "Worked on AI and machine learning projects.",
-      "Designed responsive web applications using React.",
-    ],
-  },
-  {
     title: "Organizing Joint Secretary",
-    company_name: "International Congress on AI and Digital Health Innovation",
+    company_name: "International Congress on AI & Digital Health Innovation (ICADHI)",
     icon: freelance,
-    iconBg: "#915EFF",
+    iconBg: "#915eff",
     date: "2025",
     points: [
-      "Coordinated conference activities and event management.",
-      "Supported communication and participant engagement.",
-      "Managed logistics and organizational operations.",
+      "Served as Organizing Joint Secretary managing academic conference operations, session schedules, and digital health innovation tracks.",
+      "Facilitated communications between keynote researchers, international delegates, and university representatives.",
+      "Managed conference logistics, participant engagement, and paper presentation sessions.",
     ],
   },
-
   {
     title: "Best Ambassador",
     company_name: "International Congress on Artificial Intelligence (ICAI)",
     icon: freelance,
-    iconBg: "#915EFF",
+    iconBg: "#915eff",
     date: "2025",
     points: [
-      "Represented the conference among students and researchers.",
-      "Promoted participation and engagement activities.",
-      "Recognized as Best Ambassador for outstanding contribution.",
+      "Represented the international conference among students, academics, and researchers.",
+      "Promoted participation and technical engagement across universities.",
+      "Awarded Best Ambassador for outstanding conference outreach and delegate coordination.",
     ],
   },
-
   {
     title: "Publication Coordinator",
     company_name: "IEEE DIU Student Branch Computer Society",
     icon: sheryians,
-    iconBg: "#ffffff",
+    iconBg: "#1f1d36",
     date: "2024 - 2025",
     points: [
-      "Managed publication and documentation activities.",
-      "Supported research paper coordination and communication.",
-      "Worked with authors and reviewers.",
+      "Managed academic publication and technical documentation workflows.",
+      "Coordinated with research paper authors, reviewers, and student members.",
+      "Maintained tracking logs and publication compliance for academic activities.",
+    ],
+  },
+  {
+    title: "AI & Software Engineering Contributor",
+    company_name: "Academic & Research Projects",
+    icon: freelance,
+    iconBg: "#1f1d36",
+    date: "2024 - Present",
+    points: [
+      "Engineered full-stack civic platforms (Nagorik Sathi AI / CivicSync) with spatial verification.",
+      "Built medical AI explainability workflows using DenseNet121 and Grad-CAM.",
+      "Developed desktop software (FitHub, Smart Parking) with Python Tkinter and Java MySQL.",
+      "Conducted agroclimatic ML research and dialectal NLP preprocessing experiments.",
     ],
   },
 ];
 
-
-const projects = [
-  {
-    name: "NeuroGuard AI",
-    description:
-      "Machine learning-based mortality prediction system for critically ill patients using healthcare datasets and predictive analytics.",
-    tags: [
-      {
-        name: "Machine Learning",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Python",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Healthcare AI",
-        color: "pink-text-gradient",
-      },
-    ],
-      image: `${BASE}projects/neuro.png`,
-    source_code_link: "#",
-    live_website_link: "#",
-  },
-
-  {
-    name: "Smart Parking Management System",
-    description:
-      "Desktop application developed using Java Swing and MySQL for vehicle management, parking allocation, and billing automation.",
-    tags: [
-      {
-        name: "Java",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "MySQL",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Swing",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: `${BASE}projects/parking.png`,
-    source_code_link: "#",
-    live_website_link: "#",
-  },
-
-  
-
-  {
-  name: "Student Management System",
-  description:
-    "Database-driven student management application for managing student records, results, attendance, and academic information.",
-  tags: [
-    {
-      name: "Database",
-      color: "blue-text-gradient",
-    },
-    {
-      name: "MySQL",
-      color: "green-text-gradient",
-    },
-    {
-      name: "Java",
-      color: "pink-text-gradient",
-    },
-  ],
-  image: `${BASE}projects/student.png`,
-  source_code_link: "#",
-  live_website_link: "#",
-},
-
-  {
-    name: "Personal AI Portfolio",
-    description:
-      "Interactive 3D portfolio website developed using React, Three.js, Tailwind CSS, and modern frontend technologies.",
-    tags: [
-      {
-        name: "React",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Three.js",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Tailwind",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: `${BASE}projects/portfolio.png`,
-    source_code_link: "#",
-    live_website_link: "#",
-  },
-  {
-  name: "Basic C Compiler",
-  description:
-    "Academic compiler project implementing lexical analysis, syntax checking, and basic compilation concepts.",
-  tags: [
-    {
-      name: "Compiler",
-      color: "blue-text-gradient",
-    },
-    {
-      name: "C Language",
-      color: "green-text-gradient",
-    },
-    {
-      name: "Programming",
-      color: "pink-text-gradient",
-    },
-  ],
-  image: `${BASE}projects/c.png`,
-  source_code_link: "#",
-  live_website_link: "#",
-},
-  {
-  name: "Network Topology Design",
-  description:
-    "Designed and configured enterprise network topology with routers, multilayer switches, subnetting, and IP addressing schemes.",
-  tags: [
-    {
-      name: "Networking",
-      color: "blue-text-gradient",
-    },
-    {
-      name: "Cisco",
-      color: "green-text-gradient",
-    },
-    {
-      name: "Subnetting",
-      color: "pink-text-gradient",
-    },
-  ],
-  image: `${BASE}projects/topology.png`,
-  source_code_link: "#",
-  live_website_link: "#",
-},
-];
+// Re-export projectsData as projects for backwards compatibility
+const projects = projectsData;
 
 export { services, technologies, experiences, projects };
